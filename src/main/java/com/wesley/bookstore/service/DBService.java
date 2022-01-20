@@ -1,37 +1,26 @@
-package com.wesley.bookstore;
-/*
+package com.wesley.bookstore.service;
+
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;*/
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-/*
+import org.springframework.stereotype.Service;
+
 import com.wesley.bookstore.domain.Categoria;
 import com.wesley.bookstore.domain.Livro;
 import com.wesley.bookstore.repositories.CategoriaRepository;
-import com.wesley.bookstore.repositories.LivroRepository;*/
+import com.wesley.bookstore.repositories.LivroRepository;
 
-/*
-@SpringBootApplication
-public class BookstoreApplication implements CommandLineRunner{*/
+@Service
+public class DBService {
 	
-@SpringBootApplication
-public class BookstoreApplication {
-	
-	/*@Autowired
+	@Autowired
 	private CategoriaRepository categoriaRepository;
 	
 	@Autowired
-	private LivroRepository livroRepository;*/
-
-	public static void main(String[] args) {
-		SpringApplication.run(BookstoreApplication.class, args);
-	}
-
-	/*@Override
-	public void run(String... args) throws Exception {
-		/*Categoria cat1 = new Categoria(null, "desenvolvimento", "Livros de programação");
+	private LivroRepository livroRepository;
+	
+	public void instanciaBaseDeDados() {
+		Categoria cat1 = new Categoria(null, "desenvolvimento", "Livros de programação");
 		Categoria cat2 = new Categoria(null, "inglês", "Livros de inglês");
 		Categoria cat3 = new Categoria(null, "ficção científica", "Livros de ficção científica");
 		
@@ -45,9 +34,8 @@ public class BookstoreApplication {
 		cat2.getLivros().addAll(Arrays.asList(l3, l4));
 		cat3.getLivros().addAll(Arrays.asList(l5));
 		
-		this.categoriaRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
-		this.livroRepository.saveAll(Arrays.asList(l1, l2, l3, l4, l5));
-		
-	}*/
+		categoriaRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
+		livroRepository.saveAll(Arrays.asList(l1, l2, l3, l4, l5));
+	}
 
 }
